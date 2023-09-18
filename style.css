@@ -49,6 +49,12 @@ The designs were created to the following widths:
 	--text-5: hsla(0, 0%, 100%, 0.6);
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 body {
 	font-family: 'Inter', 'Lexend Deca', sans-serif;
 	font-size: 16px;
@@ -70,7 +76,7 @@ body {
 
 .card-image {
 	width: 100%;
-	height: 300px;
+	height: 230px;
 	background: url(./images/image-header-mobile.jpg);
 	background-size: cover;
 	background-position: center;
@@ -79,9 +85,7 @@ body {
 }
 
 .image {
-	position: absolute;
-	left: 0;
-	right: 0;
+	display: none;
 }
 
 .card-image:before {
@@ -96,8 +100,8 @@ body {
 	color: var(--text-1);
 	text-align: center;
 	margin: 1em auto;
-	padding: 0.8em;
-	font-size: 1.8rem;
+	padding: 0 0.8em;
+	font-size: 1.7rem;
 }
 
 .card-title span {
@@ -108,5 +112,66 @@ body {
 	color: var(--text-3);
 	text-align: center;
 	margin: 1em auto;
-	padding: 1em;
+	padding: 0 1.2em;
+	font-size: 1rem;
+	font-weight: 300;
+	font-family: 'Inter', sans-serif;
+}
+
+.card-stats {
+	display: flex;
+	flex-direction: column;
+}
+.card-stat {
+	color: var(--text-1);
+	font-size: 1.5rem;
+	text-align: center;
+	line-height: 1rem;
+}
+
+.break-point {
+	font-size: 0.8rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	margin: 0;
+	color: var(--text-3);
+}
+
+.break-point::before {
+	content: '\a';
+	white-space: pre;
+}
+
+@media (min-width: 750px) {
+	.card {
+		display: grid;
+		grid-auto-rows: 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr;
+		gap: 0px 0px;
+		grid-template-areas: 'second-card first-card';
+		width: 800px;
+		height: 300px;
+	}
+	.first-card {
+		grid-area: first-card;
+	}
+	.second-card {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1.3fr 0.7fr;
+		gap: 0px 0px;
+		grid-template-areas:
+			'.'
+			'.';
+		grid-area: second-card;
+		padding: 1em;
+	}
+
+	.image {
+		display: block;
+	}
+	.card-stats {
+		flex-direction: row;
+	}
 }
