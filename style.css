@@ -84,6 +84,9 @@ body {
 	position: relative;
 }
 
+.image-header-desktop {
+	display: none;
+}
 .image {
 	display: none;
 }
@@ -143,35 +146,4 @@ body {
 }
 
 @media (min-width: 750px) {
-	.card {
-		display: grid;
-		grid-auto-rows: 1fr;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr;
-		gap: 0px 0px;
-		grid-template-areas: 'second-card first-card';
-		width: 800px;
-		height: 300px;
-	}
-	.first-card {
-		grid-area: first-card;
-	}
-	.second-card {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: 1.3fr 0.7fr;
-		gap: 0px 0px;
-		grid-template-areas:
-			'.'
-			'.';
-		grid-area: second-card;
-		padding: 1em;
-	}
-
-	.image {
-		display: block;
-	}
-	.card-stats {
-		flex-direction: row;
-	}
 }
