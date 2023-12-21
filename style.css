@@ -150,11 +150,13 @@ body {
 		grid-template-rows: 1fr;
 		gap: 0px 0px;
 		grid-template-areas: 'second-card first-card';
-		width: 800px;
-		height: 300px;
+		max-width: 1000px;
+		max-height: 400px;
 	}
 	.first-card {
 		grid-area: first-card;
+		width: 400px;
+		padding: 1em;
 	}
 	.second-card {
 		display: grid;
@@ -169,8 +171,17 @@ body {
 	}
 
 	.image {
-		display: block;
+		display: none;
+		width: 100%;
+		border: 1px solid white;
 	}
+	.card-image {
+		background: none;
+	}
+	img {
+		width: 100%;
+	}
+
 	.card-stats {
 		flex-direction: row;
 	}
